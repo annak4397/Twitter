@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 // Create initializer
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
-+ (NSMutableArray *)userWithArray:(NSArray *)dictionaries;
+//+ (NSMutableArray *)userWithArray:(NSArray *)dictionaries;
 
 @end
 

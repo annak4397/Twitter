@@ -16,7 +16,6 @@
      if (self) {
 
          // Is this a re-tweet?
-         //NSLog(@"%@!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", dictionary);
          NSDictionary *originalTweet = dictionary[@"retweeted_status"];
          if(originalTweet != nil){
              NSDictionary *userDictionary = dictionary[@"user"];
@@ -54,10 +53,8 @@
  }
 
 + (NSMutableArray *)tweetsWithArray:(NSArray *)dictionaries{
-    //NSLog(@"%@$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", dictionaries);
     NSMutableArray *tweets = [NSMutableArray array];
     for (NSDictionary *dictionary in dictionaries) {
-        NSLog(@"%@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", dictionary);
         Tweet *tweet = [[Tweet alloc] initWithDictionary:dictionary];
         [tweets addObject:tweet];
     }

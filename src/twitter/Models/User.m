@@ -20,13 +20,13 @@
     }
     return self;
 }
-+ (NSMutableArray *)userWithArray:(NSArray *)dictionaries{
+/*+ (NSMutableArray *)userWithArray:(NSArray *)dictionaries{
     NSMutableArray *userArray = [NSMutableArray array];
     for (NSDictionary *dictionary in dictionaries) {
         User *userDic = [[User alloc] initWithDictionary:dictionary];
         [userArray addObject:userDic];
     }
     return userArray;
-}
+}*/
 
 @end
