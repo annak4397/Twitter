@@ -11,12 +11,13 @@
 
 @implementation Tweet
 
- - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
      self = [super init];
      if (self) {
 
          // Is this a re-tweet?
-         NSDictionary *originalTweet = dictionary[@"retweeted_status"];
+         //NSLog(@"%@!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", dictionary);
+         NSDictionary *originalTweet = dictionary[@"retweeted"];
          if(originalTweet != nil){
              NSDictionary *userDictionary = dictionary[@"user"];
              self.retweetedByUser = [[User alloc] initWithDictionary:userDictionary];
@@ -30,6 +31,7 @@
          self.favorited = [dictionary[@"favorited"] boolValue];
          self.retweetCount = [dictionary[@"retweet_count"] intValue];
          self.retweeted = [dictionary[@"retweeted"] boolValue];
+         //self.replyCount = [dictionary[@""]]
          
          // TODO: initialize user
          NSDictionary *user = dictionary[@"user"];
@@ -52,8 +54,10 @@
  }
 
 + (NSMutableArray *)tweetsWithArray:(NSArray *)dictionaries{
+    NSLog(@"%@$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", dictionaries);
     NSMutableArray *tweets = [NSMutableArray array];
     for (NSDictionary *dictionary in dictionaries) {
+        //NSLog(@"%@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", dictionary);
         Tweet *tweet = [[Tweet alloc] initWithDictionary:dictionary];
         [tweets addObject:tweet];
     }
