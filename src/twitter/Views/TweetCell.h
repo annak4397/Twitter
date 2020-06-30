@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *likeNumberLabel;
 @property (weak, nonatomic) IBOutlet UIButton *messageButton;
 
+-(void)refreshData;
+
 @end
 
 NS_ASSUME_NONNULL_END

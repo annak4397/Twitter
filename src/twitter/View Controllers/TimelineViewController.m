@@ -77,6 +77,7 @@
     cell.retweetNumberLabel.text = [NSString stringWithFormat:@"%d",tweet.retweetCount];
     cell.replyNumberLabel.text = @"15";
     
+    [cell refreshData];
     
     return cell;
 }
