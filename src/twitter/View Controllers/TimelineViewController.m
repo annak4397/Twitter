@@ -14,6 +14,7 @@
 @interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *arrayOfTweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UIRefreshControl *refrereshControl;
 @end
 
 @implementation TimelineViewController
@@ -25,6 +26,14 @@
     self.tableView.delegate = self;
     
     // Get timeline
+    [self getTweets];
+    
+    self.refrereshControl = [[UIRefreshControl alloc] init];
+    [self.refrereshControl addTarget:self action:@selector(getTweets) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refrereshControl atIndex:0];
+    
+}
+- (void)getTweets{
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             self.arrayOfTweets = (NSMutableArray *)tweets;
@@ -32,9 +41,9 @@
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
+        [self.refrereshControl endRefreshing];
     }];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -59,6 +68,7 @@
     cell.tweetTextLabel.text = tweet.text;
     cell.likeNumberLabel.text = [NSString stringWithFormat:@"%d",tweet.favoriteCount];
     cell.retweetNumberLabel.text = [NSString stringWithFormat:@"%d",tweet.retweetCount];
+    cell.replyNumberLabel.text = @"15";
     
     
     return cell;
