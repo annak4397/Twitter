@@ -7,6 +7,7 @@
 //
 
 #import "TweetCell.h"
+#import "APIManager.h"
 
 
 @implementation TweetCell
@@ -15,7 +16,72 @@
     [super awakeFromNib];
     // Initialization code
 }
-
+- (IBAction)didTapRetweet:(id)sender {
+    self.tweet.retweeted = YES;
+    self.tweet.retweetCount += 1;
+    [self refreshData];
+    
+    [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+        if(error){
+             NSLog(@"Error retweet tweet: %@", error.localizedDescription);
+        }
+        else{
+            NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
+        }
+    }];
+}
+- (IBAction)didTapFavorite:(id)sender {
+    // TODO: Update the local tweet model
+    // TODO: Update cell UI
+    // TODO: Send a POST request to the POST favorites/create endpoint
+    self.tweet.favorited = YES;
+    self.tweet.favoriteCount += 1;
+    [self refreshData];
+    
+    NSLog(@"got taped");
+    
+    [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+        if(error){
+             NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+        }
+        else{
+            NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+        }
+    }];
+}
+-(void)refreshData{
+    //profileImageView;
+    //nameOfUserLabel;
+    //usernameLabel;
+    //dateOfTweetLabel;
+   // tweetTextLabel;
+    //replyButton;
+    //replyNumberLabel;
+    //retweetButton;
+    if(self.tweet.retweeted){
+        
+        self.retweetButton.selected = YES;
+    }
+    else{
+        self.retweetButton.selected = NO;
+        //[self.likeButton setImage: [UIImage imageNamed:@"favor-icon"] forState:UIControlStateNormal];
+    }
+    self.retweetNumberLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+    
+    //likeButton;
+    if(self.tweet.favorited){
+        
+        self.likeButton.selected = YES;
+        
+        //[self.likeButton setImage: [UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateSelected];
+    }
+    else{
+        self.likeButton.selected = NO;
+        //[self.likeButton setImage: [UIImage imageNamed:@"favor-icon"] forState:UIControlStateNormal];
+    }
+    self.likeNumberLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
+    //messageButton;
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
