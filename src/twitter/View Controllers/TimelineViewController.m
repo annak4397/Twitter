@@ -70,9 +70,13 @@
     [cell.profileImageView setImageWithURL:profileImageURL];
     
     cell.nameOfUserLabel.text = tweet.user.name;
-    cell.usernameLabel.text = tweet.user.screenName;
+    NSString *atSymb = @"@";
+    cell.usernameLabel.text = [atSymb stringByAppendingFormat:tweet.user.screenName];
     cell.dateOfTweetLabel.text = tweet.dateAgo;
     cell.tweetTextLabel.text = tweet.text;
+    //cell.likeButton.titleLabel.text = [NSString stringWithFormat:@"%d",tweet.favoriteCount];
+    //cell.retweetButton.titleLabel.text = [NSString stringWithFormat:@"%d",tweet.retweetCount];
+    //cell.replyButton.titleLabel.text = @"0";
     cell.likeNumberLabel.text = [NSString stringWithFormat:@"%d",tweet.favoriteCount];
     cell.retweetNumberLabel.text = [NSString stringWithFormat:@"%d",tweet.retweetCount];
     cell.replyNumberLabel.text = @"15";
