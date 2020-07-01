@@ -223,6 +223,7 @@
                                             <outlet property="retweetNumberLabel" destination="Frr-Gm-hU4" id="hQ4-jR-i9w"/>
                                             <outlet property="tweetTextLabel" destination="FNZ-Tu-RPy" id="1NT-ZS-Hg2"/>
                                             <outlet property="usernameLabel" destination="2Ga-6L-7ey" id="ZgF-XS-U3i"/>
+                                            <segue destination="rRy-G6-ffu" kind="show" identifier="detailTweet" id="v3c-37-WGK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -253,7 +254,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="edit-icon" id="Jw2-mW-zSu">
                             <connections>
-                                <segue destination="GV2-dU-DrC" kind="presentation" id="aOa-ke-CTd"/>
+                                <segue destination="GV2-dU-DrC" kind="presentation" identifier="composeTweet" id="aOa-ke-CTd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -277,7 +278,6 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="220"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -304,7 +304,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Y8-Zl-DR4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3115.9420289855075" y="36.830357142857139"/>
+            <point key="canvasLocation" x="3162" y="-395"/>
+        </scene>
+        <!--Tweet-->
+        <scene sceneID="eq4-Wk-Gje">
+            <objects>
+                <viewController id="tNb-og-mGX" customClass="DetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HLi-vW-T1h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tZd-Jl-0hz">
+                                <rect key="frame" x="20" y="70" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="hsn-KG-ond"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Tweet" id="Bpw-gV-UOQ"/>
+                    <connections>
+                        <outlet property="profileImageView" destination="tZd-Jl-0hz" id="KMR-oh-NAl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i5H-CH-v4r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3160.8695652173915" y="320.75892857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WUT-Ke-VeR">
@@ -340,7 +365,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vUj-sD-isC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2396" y="37"/>
+            <point key="canvasLocation" x="2422" y="-395"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7hQ-L4-S1b">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rRy-G6-ffu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="c9h-dI-pKd"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jbO-dD-4J4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tNb-og-mGX" kind="relationship" relationship="rootViewController" id="UKK-bz-sb5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fW6-Ud-lCs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2422" y="321"/>
         </scene>
     </scenes>
     <resources>
