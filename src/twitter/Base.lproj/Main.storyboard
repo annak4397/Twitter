@@ -223,7 +223,7 @@
                                             <outlet property="retweetNumberLabel" destination="Frr-Gm-hU4" id="hQ4-jR-i9w"/>
                                             <outlet property="tweetTextLabel" destination="FNZ-Tu-RPy" id="1NT-ZS-Hg2"/>
                                             <outlet property="usernameLabel" destination="2Ga-6L-7ey" id="ZgF-XS-U3i"/>
-                                            <segue destination="rRy-G6-ffu" kind="show" identifier="detailTweet" id="v3c-37-WGK"/>
+                                            <segue destination="tNb-og-mGX" kind="show" identifier="detailTweet" id="MQh-i1-W1p"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -376,6 +376,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xl7-X3-d2v">
+                                <rect key="frame" x="20" y="305.5" width="374" height="1"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="xxz-or-MRG"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h88-H1-DPW">
+                                <rect key="frame" x="364" y="312.5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="JFN-Lu-wdQ"/>
+                                    <constraint firstAttribute="width" constant="30" id="ca1-Ix-dhV"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="favor-icon"/>
+                                <state key="selected" image="favor-icon-red"/>
+                                <connections>
+                                    <action selector="didTapFavorite:" destination="tNb-og-mGX" eventType="touchUpInside" id="GKM-qU-HOe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zSR-xW-Xsg">
+                                <rect key="frame" x="324" y="314.5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="RJd-FN-9Qp"/>
+                                    <constraint firstAttribute="width" constant="30" id="dqc-e7-F8T"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="retweet-icon"/>
+                                <state key="selected" image="retweet-icon-green"/>
+                                <connections>
+                                    <action selector="didTapRetweet:" destination="tNb-og-mGX" eventType="touchUpInside" id="4VJ-Ry-Tfk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -385,11 +416,16 @@
                             <constraint firstItem="ee4-ee-Poq" firstAttribute="leading" secondItem="hsn-KG-ond" secondAttribute="leading" constant="20" id="1zg-xg-Wb8"/>
                             <constraint firstItem="tZd-Jl-0hz" firstAttribute="top" secondItem="hsn-KG-ond" secondAttribute="top" constant="20" id="4qE-3X-Par"/>
                             <constraint firstItem="gNm-yj-EnO" firstAttribute="top" secondItem="Fic-MQ-yNg" secondAttribute="bottom" constant="8" id="5eD-l7-FgY"/>
+                            <constraint firstAttribute="trailing" secondItem="h88-H1-DPW" secondAttribute="trailing" constant="20" id="5m0-mu-Q9j"/>
+                            <constraint firstItem="h88-H1-DPW" firstAttribute="top" secondItem="Xl7-X3-d2v" secondAttribute="bottom" constant="6" id="5nI-5S-aTK"/>
+                            <constraint firstItem="zSR-xW-Xsg" firstAttribute="top" secondItem="Xl7-X3-d2v" secondAttribute="bottom" constant="8" id="9fG-BM-XL8"/>
                             <constraint firstItem="96g-65-gDN" firstAttribute="top" secondItem="QtL-Ng-L7Q" secondAttribute="top" id="Bep-fy-q7Q"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="96g-65-gDN" secondAttribute="trailing" constant="20" id="Cs4-mn-a8x"/>
                             <constraint firstItem="QtL-Ng-L7Q" firstAttribute="top" secondItem="w8r-YY-Ogo" secondAttribute="bottom" constant="8" id="DU5-qk-tRJ"/>
+                            <constraint firstItem="Xl7-X3-d2v" firstAttribute="leading" secondItem="HLi-vW-T1h" secondAttribute="leading" constant="20" id="EHY-KY-0rg"/>
                             <constraint firstItem="ee4-ee-Poq" firstAttribute="top" secondItem="tZd-Jl-0hz" secondAttribute="bottom" constant="20" id="F00-op-Kit"/>
                             <constraint firstItem="xNt-MZ-InC" firstAttribute="leading" secondItem="hsn-KG-ond" secondAttribute="leading" constant="20" id="Gb6-2v-Dyb"/>
+                            <constraint firstAttribute="trailing" secondItem="Xl7-X3-d2v" secondAttribute="trailing" constant="20" id="JzO-pT-6dk"/>
                             <constraint firstItem="w8r-YY-Ogo" firstAttribute="top" secondItem="xNt-MZ-InC" secondAttribute="bottom" constant="10" id="PPo-l3-MLg"/>
                             <constraint firstItem="Fic-MQ-yNg" firstAttribute="leading" secondItem="tZd-Jl-0hz" secondAttribute="trailing" constant="8" id="Qvj-9m-dtu"/>
                             <constraint firstItem="hsn-KG-ond" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xNt-MZ-InC" secondAttribute="trailing" constant="10" id="TcO-EN-34G"/>
@@ -397,6 +433,8 @@
                             <constraint firstItem="xNt-MZ-InC" firstAttribute="top" secondItem="ee4-ee-Poq" secondAttribute="bottom" constant="20" id="Xo1-69-2Ah"/>
                             <constraint firstItem="JOI-ff-BwA" firstAttribute="leading" secondItem="zZI-TO-iTj" secondAttribute="trailing" constant="10" id="bWo-eq-OhU"/>
                             <constraint firstItem="w8r-YY-Ogo" firstAttribute="trailing" secondItem="HLi-vW-T1h" secondAttribute="trailing" constant="-20" id="ba6-ge-e8R"/>
+                            <constraint firstItem="Xl7-X3-d2v" firstAttribute="top" secondItem="zZI-TO-iTj" secondAttribute="bottom" constant="8" id="eLi-Yf-E4l"/>
+                            <constraint firstItem="h88-H1-DPW" firstAttribute="leading" secondItem="zSR-xW-Xsg" secondAttribute="trailing" constant="10" id="gfS-Ni-a0x"/>
                             <constraint firstItem="tZd-Jl-0hz" firstAttribute="leading" secondItem="hsn-KG-ond" secondAttribute="leading" constant="20" id="hdq-44-7CD"/>
                             <constraint firstItem="JOI-ff-BwA" firstAttribute="top" secondItem="QtL-Ng-L7Q" secondAttribute="top" id="ijF-eB-JjY"/>
                             <constraint firstItem="gNm-yj-EnO" firstAttribute="leading" secondItem="tZd-Jl-0hz" secondAttribute="trailing" constant="8" id="nhz-yH-Pd3"/>
@@ -410,9 +448,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tweet" id="Bpw-gV-UOQ"/>
                     <connections>
+                        <outlet property="likeButton" destination="h88-H1-DPW" id="0Y3-5S-FSh"/>
                         <outlet property="likeLabel" destination="JOI-ff-BwA" id="qCb-5g-4Ij"/>
                         <outlet property="nameLabel" destination="Fic-MQ-yNg" id="Td1-ET-wF6"/>
                         <outlet property="profileImageView" destination="tZd-Jl-0hz" id="KMR-oh-NAl"/>
+                        <outlet property="retweetButton" destination="zSR-xW-Xsg" id="Mqe-2w-K0o"/>
                         <outlet property="retweetLabel" destination="QtL-Ng-L7Q" id="C0N-4O-wAj"/>
                         <outlet property="screenNameLabel" destination="gNm-yj-EnO" id="bre-fb-eGl"/>
                         <outlet property="timeAndDateLabel" destination="xNt-MZ-InC" id="AfH-fs-9d7"/>
@@ -421,7 +461,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5H-CH-v4r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3160.8695652173915" y="320.75892857142856"/>
+            <point key="canvasLocation" x="2422" y="350"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WUT-Ke-VeR">
@@ -458,25 +498,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vUj-sD-isC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2422" y="-395"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="7hQ-L4-S1b">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rRy-G6-ffu" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="c9h-dI-pKd"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jbO-dD-4J4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="tNb-og-mGX" kind="relationship" relationship="rootViewController" id="UKK-bz-sb5"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fW6-Ud-lCs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2422" y="321"/>
         </scene>
     </scenes>
     <resources>

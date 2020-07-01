@@ -39,6 +39,12 @@
     [self.tableView insertSubview:self.refrereshControl atIndex:0];
     
 }
+- (void)viewDidAppear:(BOOL)animated{
+    [self getTweets];
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+ [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 - (void)getTweets{
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
@@ -85,8 +91,9 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
         Tweet *tappedTweet = self.arrayOfTweets[indexPath.row];
         
-        UINavigationController *navigationController = [segue destinationViewController];
-        DetailViewController *detailController = (DetailViewController*)navigationController.topViewController;
+        //UINavigationController *navigationController = [segue destinationViewController];
+        //DetailViewController *detailController = (DetailViewController*)navigationController.topViewController;
+        DetailViewController *detailController = [segue destinationViewController];
         detailController.tweet = tappedTweet;
         
     }
