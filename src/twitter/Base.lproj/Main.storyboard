@@ -238,6 +238,19 @@
                         <viewLayoutGuide key="safeArea" id="ugE-Ul-H9I"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home Timeline" id="MOc-fV-EZE">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" style="plain" id="6y9-HR-iLc">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KPN-xd-7Vn">
+                                <rect key="frame" x="20" y="13" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="tapLogout:" destination="Lbl-k5-U4i" eventType="touchUpInside" id="BF2-fL-dNL"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="tapLogout:" destination="Lbl-k5-U4i" id="sVw-a2-CWT"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="edit-icon" id="Jw2-mW-zSu">
                             <connections>
                                 <segue destination="GV2-dU-DrC" kind="presentation" id="aOa-ke-CTd"/>
