@@ -8,6 +8,7 @@
 
 #import "TweetCell.h"
 #import "APIManager.h"
+#import "UIImageView+AFNetworking.h"
 
 
 @implementation TweetCell
@@ -116,6 +117,23 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+-(void)setCellTweet:(Tweet *)tweetPassed{
+    //set profile pic
+    NSURL *profileImageURL = [NSURL URLWithString:tweetPassed.user.profileImageURLString];
+    [self.profileImageView setImageWithURL:profileImageURL];
+    
+    self.nameOfUserLabel.text = tweetPassed.user.name;
+    NSString *atSymb = @"@";
+    self.usernameLabel.text = [atSymb stringByAppendingFormat:tweetPassed.user.screenName];
+    self.dateOfTweetLabel.text = tweetPassed.dateAgo;
+    self.tweetTextLabel.text = tweetPassed.text;
+    //self.likeButton.titleLabel.text = [NSString stringWithFormat:@"%d",tweet.favoriteCount];
+    //self.retweetButton.titleLabel.text = [NSString stringWithFormat:@"%d",tweet.retweetCount];
+    //self.replyButton.titleLabel.text = @"0";
+    self.likeNumberLabel.text = [NSString stringWithFormat:@"%d",tweetPassed.favoriteCount];
+    self.retweetNumberLabel.text = [NSString stringWithFormat:@"%d",tweetPassed.retweetCount];
+    self.replyNumberLabel.text = @"15";
 }
 
 @end

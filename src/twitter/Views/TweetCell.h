@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *messageButton;
 
 -(void)refreshData;
+-(void)setCellTweet:(Tweet *)tweetPassed;
 
 @end
 

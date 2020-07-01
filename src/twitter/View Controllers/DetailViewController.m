@@ -13,6 +13,11 @@
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeAndDateLabel;
+
 
 @end
 
@@ -24,6 +29,11 @@
     //set profile pic
     NSURL *profileImageURL = [NSURL URLWithString:self.tweet.user.profileImageURLString];
     [self.profileImageView setImageWithURL:profileImageURL];
+    self.nameLabel.text = self.tweet.user.name;
+    NSString *at = @"@";
+    self.screenNameLabel.text = [at stringByAppendingFormat:self.tweet.user.screenName];
+    self.tweetTextLabel.text = self.tweet.text;
+    self.timeAndDateLabel.text = self.tweet.createdAtOriginalString;
 
 }
 

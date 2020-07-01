@@ -69,23 +69,7 @@
     
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
     cell.tweet = tweet;
-    
-    //set profile pic
-    NSURL *profileImageURL = [NSURL URLWithString:tweet.user.profileImageURLString];
-    [cell.profileImageView setImageWithURL:profileImageURL];
-    
-    cell.nameOfUserLabel.text = tweet.user.name;
-    NSString *atSymb = @"@";
-    cell.usernameLabel.text = [atSymb stringByAppendingFormat:tweet.user.screenName];
-    cell.dateOfTweetLabel.text = tweet.dateAgo;
-    cell.tweetTextLabel.text = tweet.text;
-    //cell.likeButton.titleLabel.text = [NSString stringWithFormat:@"%d",tweet.favoriteCount];
-    //cell.retweetButton.titleLabel.text = [NSString stringWithFormat:@"%d",tweet.retweetCount];
-    //cell.replyButton.titleLabel.text = @"0";
-    cell.likeNumberLabel.text = [NSString stringWithFormat:@"%d",tweet.favoriteCount];
-    cell.retweetNumberLabel.text = [NSString stringWithFormat:@"%d",tweet.retweetCount];
-    cell.replyNumberLabel.text = @"15";
-    
+    [cell setCellTweet:tweet];
     [cell refreshData];
     
     return cell;
