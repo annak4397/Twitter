@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeAndDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *retweetLabel;
+@property (weak, nonatomic) IBOutlet UILabel *likeLabel;
 
 
 @end
@@ -34,7 +36,8 @@
     self.screenNameLabel.text = [at stringByAppendingFormat:self.tweet.user.screenName];
     self.tweetTextLabel.text = self.tweet.text;
     self.timeAndDateLabel.text = self.tweet.createdAtOriginalString;
-
+    self.retweetLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+    self.likeLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
 }
 
 /*
