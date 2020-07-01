@@ -15,10 +15,11 @@
 #import "LoginViewController.h"
 #import "DetailViewController.h"
 
-@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource,UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *arrayOfTweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refrereshControl;
+@property (assign, nonatomic) BOOL isMoreDataLoading;
 - (IBAction)tapLogout:(id)sender;
 
 @end
@@ -79,6 +80,23 @@
     [cell refreshData];
     
     return cell;
+}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if(!self.isMoreDataLoading){
+        // Calculate the position of one screen length before the bottom of the results
+        int scrollViewContentHeight = self.tableView.contentSize.height;
+        int scrollOffsetThreshold = scrollViewContentHeight - self.tableView.bounds.size.height;
+        
+        // When the user has scrolled past the threshold, start requesting
+        if(scrollView.contentOffset.y > scrollOffsetThreshold && self.tableView.isDragging) {
+            self.isMoreDataLoading = true;
+            
+            [self loadMoreData];
+        }
+    }
+}
+-(void)loadMoreData{
+    //add some call to api to load more stuff
 }
 
 
