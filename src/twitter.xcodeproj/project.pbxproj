@@ -23,6 +23,7 @@
 		D00BC32C24AAC07A002DB8A4 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BC32B24AAC07A002DB8A4 /* ComposeViewController.m */; };
 		D00BC32F24AC1405002DB8A4 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BC32E24AC1405002DB8A4 /* DetailViewController.m */; };
 		D0AFDF5E24AD52C9000D05A5 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AFDF5D24AD52C9000D05A5 /* ProfileDetailViewController.m */; };
+		D0AFDF6124AE4D8A000D05A5 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AFDF6024AE4D8A000D05A5 /* UserProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,8 @@
 		D00BC32E24AC1405002DB8A4 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		D0AFDF5C24AD52C9000D05A5 /* ProfileDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileDetailViewController.h; sourceTree = "<group>"; };
 		D0AFDF5D24AD52C9000D05A5 /* ProfileDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailViewController.m; sourceTree = "<group>"; };
+		D0AFDF5F24AE4D8A000D05A5 /* UserProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
+		D0AFDF6024AE4D8A000D05A5 /* UserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +162,8 @@
 				D00BC32E24AC1405002DB8A4 /* DetailViewController.m */,
 				D0AFDF5C24AD52C9000D05A5 /* ProfileDetailViewController.h */,
 				D0AFDF5D24AD52C9000D05A5 /* ProfileDetailViewController.m */,
+				D0AFDF5F24AE4D8A000D05A5 /* UserProfileViewController.h */,
+				D0AFDF6024AE4D8A000D05A5 /* UserProfileViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -292,6 +297,7 @@
 				6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */,
 				D00BC32F24AC1405002DB8A4 /* DetailViewController.m in Sources */,
 				6AD278DA20BC4B950085BC29 /* AppDelegate.m in Sources */,
+				D0AFDF6124AE4D8A000D05A5 /* UserProfileViewController.m in Sources */,
 				6AD278F620BCB68B0085BC29 /* APIManager.m in Sources */,
 				6AD2790920BCC04D0085BC29 /* TimelineViewController.m in Sources */,
 			);

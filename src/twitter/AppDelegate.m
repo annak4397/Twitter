@@ -20,11 +20,21 @@
     
     if ([[APIManager shared] isAuthorized]) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"TweetsNavigationController"];
-        self.window.rootViewController = navigationController;
+        
+        if([APIManager shared].session){
+            UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+            self.window.rootViewController = navigationController;
+        }
+        else{
+            UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+            self.window.rootViewController = navigationController;
+        }
     }
     
     return YES;
+}
+-(void)changeRootViewController: (UIViewController *)controller :(Boolean)animated{
+    self.window.rootViewController = controller;
 }
 
 
