@@ -36,8 +36,7 @@
     self.linkLabel.text = self.user.linkString;
     self.followingLabel.text = [NSString stringWithFormat:@"%d", self.user.followingNumber];
     self.followersLabel.text = [NSString stringWithFormat:@"%d", self.user.followersNumber];
-    NSURL *profileImageURL = [NSURL URLWithString:self.user.profileImageURLString];
-    [self.profileImageView setImageWithURL:profileImageURL];
+    [self.profileImageView setImageWithURL:self.user.profileImage];
     [self.bannerImageView setImageWithURL:self.user.bannerImage];
 }
 

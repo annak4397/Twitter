@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *screenName;
-@property (nonatomic, strong) NSString *profileImageURLString;
+@property (nonatomic, strong) NSURL *profileImage;
 @property (nonatomic, strong) NSURL *bannerImage;
 @property (nonatomic, strong) NSString *descriptionString;
 @property (nonatomic, strong) NSString *locationString;

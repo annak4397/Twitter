@@ -15,7 +15,7 @@
     if (self) {
         self.name = dictionary[@"name"];
         self.screenName = dictionary[@"screen_name"];
-        self.profileImageURLString = dictionary[@"profile_image_url_https"];
+        self.profileImageURLString = [NSURL URLWithString:dictionary[@"profile_image_url_https"]];
         self.bannerImage = [NSURL URLWithString: dictionary[@"profile_banner_url"]];
         self.descriptionString = dictionary[@"description"];
         self.locationString = dictionary[@"location"];
