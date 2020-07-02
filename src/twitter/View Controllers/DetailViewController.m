@@ -32,8 +32,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //set profile pic
-    NSURL *profileImageURL = [NSURL URLWithString:self.tweet.user.profileImageURLString];
-    [self.profileImageView setImageWithURL:profileImageURL];
+    [self.profileImageView setImageWithURL:self.tweet.user.profileImage];
     self.nameLabel.text = self.tweet.user.name;
     NSString *at = @"@";
     self.screenNameLabel.text = [at stringByAppendingFormat:self.tweet.user.screenName];

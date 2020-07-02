@@ -123,7 +123,7 @@
 }
 -(void)setCellTweet:(Tweet *)tweetPassed{
     //set profile pic
-    NSURL *profileImageURL = [NSURL URLWithString:tweetPassed.user.profileImageURLString];
+    NSURL *profileImageURL = tweetPassed.user.profileImage;
     [self.profileImageView setImageWithURL:profileImageURL];
     
     self.nameOfUserLabel.text = tweetPassed.user.name;
