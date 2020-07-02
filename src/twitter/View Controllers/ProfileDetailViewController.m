@@ -33,11 +33,23 @@
     self.descriptionLabel.text = self.user.descriptionString;
     self.locationLabel.text = self.user.locationString;
     self.joinedLabel.text = self.user.joinedString;
-    self.linkLabel.text = self.user.linkString;
+    //self.linkLabel.text = self.user.linkString;
+    if(self.user.linkString != (id)[NSNull null]){
+        self.linkLabel.text = self.user.linkString;
+    }
+    else{
+        self.linkLabel.text = @"";
+    }
     self.followingLabel.text = [NSString stringWithFormat:@"%d", self.user.followingNumber];
     self.followersLabel.text = [NSString stringWithFormat:@"%d", self.user.followersNumber];
-    [self.profileImageView setImageWithURL:self.user.profileImage];
-    [self.bannerImageView setImageWithURL:self.user.bannerImage];
+    //[self.profileImageView setImageWithURL:self.user.profileImage];
+    //[self.bannerImageView setImageWithURL:self.user.bannerImage];
+    if(self.user.profileImage != nil){
+        [self.profileImageView setImageWithURL:self.user.profileImage];
+    }
+    if(self.user.bannerImage != nil){
+        [self.bannerImageView setImageWithURL:self.user.bannerImage];
+    }
 }
 
 /*
