@@ -15,6 +15,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *screenName;
 @property (nonatomic, strong) NSString *profileImageURLString;
+@property (nonatomic, strong) NSURL *bannerImage;
+@property (nonatomic, strong) NSString *descriptionString;
+@property (nonatomic, strong) NSString *locationString;
+@property (nonatomic, strong) NSString *joinedString;
+@property (nonatomic, strong) NSString *linkString;
+@property (nonatomic) int followingNumber;
+@property (nonatomic) int followersNumber;
+
+
 
 
 // Create initializer

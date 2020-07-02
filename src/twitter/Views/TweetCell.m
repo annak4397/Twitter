@@ -16,6 +16,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    UITapGestureRecognizer *profileTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapUserProfile:)];
+    [self.profileImageView addGestureRecognizer:profileTapGestureRecognizer];
+    [self.profileImageView setUserInteractionEnabled:YES];
 }
 - (IBAction)didTapFavorite:(id)sender {
     // TODO: Update the local tweet model
@@ -134,6 +137,10 @@
     self.likeNumberLabel.text = [NSString stringWithFormat:@"%d",tweetPassed.favoriteCount];
     self.retweetNumberLabel.text = [NSString stringWithFormat:@"%d",tweetPassed.retweetCount];
     self.replyNumberLabel.text = @"15";
+}
+- (void) didTapUserProfile:(UITapGestureRecognizer *)sender{
+    // TODO: Call method on delegate
+    [self.delegate tweetCell:self didTap:self.tweet.user];
 }
 
 @end

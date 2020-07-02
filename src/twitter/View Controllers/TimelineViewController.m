@@ -14,8 +14,9 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "DetailViewController.h"
+#import "ProfileDetailViewController.h"
 
-@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource,UITableViewDataSource>
+@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource,UITableViewDataSource,TweetCellDelegate>
 @property (nonatomic, strong) NSMutableArray *arrayOfTweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refrereshControl;
@@ -38,7 +39,6 @@
     self.refrereshControl = [[UIRefreshControl alloc] init];
     [self.refrereshControl addTarget:self action:@selector(getTweets) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refrereshControl atIndex:0];
-    
 }
 - (void)viewDidAppear:(BOOL)animated{
     [self getTweets];
@@ -78,8 +78,12 @@
     cell.tweet = tweet;
     [cell setCellTweet:tweet];
     [cell refreshData];
+    cell.delegate = self;
     
     return cell;
+}
+- (void) didTapUserProfile:(UITapGestureRecognizer *)sender{
+    // TODO: Call method on delegate
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if(!self.isMoreDataLoading){
@@ -120,6 +124,10 @@
         ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
         composeController.delegate = self;
     }
+    else if([[segue identifier] isEqualToString:@"profileDetail"]){
+        ProfileDetailViewController *profileController = [segue destinationViewController];
+        profileController.user = sender;
+    }
 }
 
 - (IBAction)tapLogout:(id)sender {
@@ -130,5 +138,9 @@
     appDelegate.window.rootViewController = loginViewController;
     
     [[APIManager shared] logout];
+}
+- (void)tweetCell:(TweetCell *)tweetCell didTap:(User *)user{
+    // TODO: Perform segue to profile view controller
+    [self performSegueWithIdentifier:@"profileDetail" sender:user];
 }
 @end
