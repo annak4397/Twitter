@@ -29,10 +29,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.nameLabel.text = self.user.name;
-    self.screennameLabel.text = self.user.screenName;
+    self.screennameLabel.text = [@"@" stringByAppendingString:self.user.screenName];
     self.descriptionLabel.text = self.user.descriptionString;
     self.locationLabel.text = self.user.locationString;
-    self.joinedLabel.text = self.user.joinedString;
+    self.joinedLabel.text = [@"Joined: " stringByAppendingString:self.user.joinedString];
     //self.linkLabel.text = self.user.linkString;
     if(self.user.linkString != (id)[NSNull null]){
         self.linkLabel.text = self.user.linkString;

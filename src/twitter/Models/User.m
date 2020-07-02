@@ -7,6 +7,7 @@
 //
 
 #import "User.h"
+#import "DateTools.h"
 
 @implementation User
 
@@ -15,11 +16,27 @@
     if (self) {
         self.name = dictionary[@"name"];
         self.screenName = dictionary[@"screen_name"];
-        self.profileImage = [NSURL URLWithString:dictionary[@"profile_image_url_https"]];
+        NSString *newString = [dictionary[@"profile_image_url_https"] stringByReplacingOccurrencesOfString:@"_normal" withString:@""];
+        self.profileImage = [NSURL URLWithString:newString];
         self.bannerImage = [NSURL URLWithString: dictionary[@"profile_banner_url"]];
         self.descriptionString = dictionary[@"description"];
         self.locationString = dictionary[@"location"];
-        self.joinedString = dictionary[@"created_at"];
+        
+        NSString *createdAtOriginalString = dictionary[@"created_at"];
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                // Configure the input format to parse the date string
+                formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
+                // Convert String to Date
+                NSDate *date = [formatter dateFromString:createdAtOriginalString];
+                // Configure output format
+                formatter.dateStyle = NSDateFormatterShortStyle;
+                formatter.timeStyle = NSDateFormatterNoStyle;
+                // Convert Date to String
+                
+                //self.createdAtOriginalString = createdAtOriginalString;
+                //self.createdAtString = [formatter stringFromDate:date];
+        
+        self.joinedString = [formatter stringFromDate:date];
         self.linkString = dictionary[@"url"];
         self.followingNumber = [dictionary[@"friends_count"] intValue];
         self.followersNumber = [dictionary[@"followers_count"] intValue];
